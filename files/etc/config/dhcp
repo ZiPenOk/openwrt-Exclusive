@@ -1,0 +1,145 @@
+
+config dnsmasq
+	option domainneeded '1'
+	option localise_queries '1'
+	option local '/lan/'
+	option domain 'lan'
+	option expandhosts '1'
+	option authoritative '1'
+	option readethers '1'
+	option leasefile '/tmp/dhcp.leases'
+	option resolvfile '/tmp/resolv.conf.d/resolv.conf.auto'
+	option nonwildcard '1'
+	option localservice '1'
+	option filter_aaaa '1'
+	option port '53'
+	option sequential_ip '1'
+	option rebind_protection '0'
+
+config dhcp 'lan'
+	option interface 'lan'
+	option leasetime '12h'
+	option ra_slaac '1'
+	list ra_flags 'managed-config'
+	list ra_flags 'other-config'
+	option start '120'
+	option limit '20'
+
+config dhcp 'wan'
+	option interface 'wan'
+	option ignore '1'
+
+config odhcpd 'odhcpd'
+	option maindhcp '0'
+	option leasefile '/tmp/hosts/odhcpd'
+	option leasetrigger '/usr/sbin/odhcpd-update'
+	option loglevel '4'
+
+config host
+	option dns '1'
+	option ip '10.10.10.12'
+	option mac '0c:9d:92:4f:da:50'
+	option name 'AC66U-B1-Room'
+
+config host
+	option dns '1'
+	option mac '88:d7:f6:6a:c7:80'
+	option ip '10.10.10.13'
+	option name 'AC66U-B1-Parlor'
+
+config host
+	option name 'PC'
+	option dns '1'
+	option mac '70:85:c2:65:f0:36'
+	option ip '10.10.10.120'
+
+config host
+	option dns '1'
+	option ip '10.10.10.121'
+	option name 'iPhone11'
+	option mac '80:0C:67:20:8C:C1'
+
+config host
+	option name 'Mum'
+	option dns '1'
+	option ip '10.10.10.122'
+	option mac '18:01:f1:c4:2f:52'
+
+config host
+	option name 'Dad'
+	option dns '1'
+	option mac '2c:d0:66:5d:d3:8a'
+	option ip '10.10.10.123'
+
+config host
+	option name 'jia-7P'
+	option dns '1'
+	option mac '48:a1:95:3e:e1:c1'
+	option ip '10.10.10.124'
+
+config host
+	option name 'feng'
+	option dns '1'
+	option mac 'd8:1d:72:69:35:a4'
+	option ip '10.10.10.125'
+
+config host
+	option name 'iPadAir2'
+	option dns '1'
+	option mac 'a0:99:9b:e6:91:95'
+	option ip '10.10.10.126'
+
+config host
+	option dns '1'
+	option ip '10.10.10.127'
+	option name 'meitu'
+	option mac 'c0:9a:71:78:aa:d2'
+
+config host
+	option dns '1'
+	option name 'NAS'
+	option mac '00:11:32:4f:51:05'
+	option ip '10.10.10.200'
+
+config host
+	option name 'wifi-power'
+	option dns '1'
+	option mac '34:ea:34:c7:20:fc'
+	option ip '10.10.10.201'
+
+config host
+	option name 'MiBox3s'
+	option dns '1'
+	option mac '3c:bd:3e:1c:66:97'
+	option ip '10.10.10.210'
+
+config host
+	option name 'XiaoMi-Box'
+	option dns '1'
+	option mac '10:48:b1:c7:20:75'
+	option ip '10.10.10.211'
+
+config host
+	option name 'ROWA-TV'
+	option dns '1'
+	option mac 'cc:d2:9b:7a:a2:b9'
+	option ip '10.10.10.212'
+
+config host
+	option name 'YALI'
+	option dns '1'
+	option mac '5C:1D:D9:64:7C:FB'
+	option ip '10.10.10.128'
+
+config host
+	option name 'YALIPAD'
+	option dns '1'
+	option mac 'A0:56:F3:F0:AF:FE'
+	option ip '10.10.10.129'
+
+config host
+	option name 'PC-TP'
+	option dns '1'
+	option mac '08:1F:71:24:59:31'
+	option ip '10.10.10.130'
+
