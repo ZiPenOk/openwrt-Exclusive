@@ -34,6 +34,15 @@ config server
 	option ip '119.29.29.29'
 	option addition_arg '-check-edns'
 	option blacklist_ip '1'
+	
+config server
+	option enabled '1'
+	option name 'DNSPod'
+	option ip 'https://doh.pub/dns-query'
+	option type 'https'
+  option no_check_certificate '0'
+	option addition_arg '-check-edns'
+	option blacklist_ip '1'
 
 config server
 	option enabled '1'
@@ -42,20 +51,21 @@ config server
 	option ip '223.5.5.5'
 	option addition_arg '-check-edns'
 	option blacklist_ip '1'
-
+	
 config server
 	option enabled '1'
-	option type 'udp'
-	option name '114DNS'
-	option ip '114.114.114.114'
+	option name 'AliDNS'
+	option ip 'https://dns.alidns.com/dns-query'
+	option type 'https'
+  option no_check_certificate '0'
 	option addition_arg '-check-edns'
 	option blacklist_ip '1'
 
 config server
 	option enabled '1'
 	option type 'udp'
-	option name 'SDNS'
-	option ip '1.2.4.8'
+	option name '114DNS'
+	option ip '114.114.114.114'
 	option addition_arg '-check-edns'
 	option blacklist_ip '1'
 

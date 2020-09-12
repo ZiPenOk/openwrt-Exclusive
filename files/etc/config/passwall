@@ -9,9 +9,9 @@ config global
 	option up_trust_chinadns_ng_dns 'udp'
 	option dns_default 'china'
 	option udp_node1 'tcp_'
-	option chinadns_ng '1'
-	option dns_mode 'custom'
-	option dns_forward '127.0.0.1:5335'
+	option dns_mode 'pdnsd'
+	option up_trust_pdnsd_dns 'tcp'
+	option dns_forward '8.8.4.4'
 	option enabled '0'
 	option tcp_node1 'nil'
 
