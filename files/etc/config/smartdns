@@ -118,7 +118,7 @@ config server
 config server
 	option enabled '1'
 	option name 'Quad9'
-	option ip '9.9.9.9'
+	option ip '9.9.9.11'
 	option type 'tls'
 	option server_group 'dns2'
 	option no_check_certificate '0'
