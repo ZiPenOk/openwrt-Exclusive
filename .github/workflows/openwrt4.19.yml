@@ -105,6 +105,7 @@ jobs:
         grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
         echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
+        echo "FILE_TIME=_$(date "+%Y年%m月%d号-%H点%M分")" >> $GITHUB_ENV
     - name: 查看磁盘使用情况
       if: (!cancelled())
       run: df -hT
@@ -121,9 +122,17 @@ jobs:
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         cd openwrt/bin/targets/*/*
+        rm -rf packages && mkdir packages
+        find -name "*esxi-flat.vmdk*" | xargs -i mv -f {} packages
+        find -name "*kernel.bin*" | xargs -i mv -f {} packages
+        find -name "*rootfs*" | xargs -i mv -f {} packages
+        find -name "*.manifest*" | xargs -i mv -f {} packages
+        find -name "*vmlinuz*" | xargs -i mv -f {} packages
+        find -name "*esxi.vmdk*" | xargs -i mv -f {} packages
         rm -rf packages
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "::set-output name=status::success"
+
     - name: 上传固件到github
       uses: actions/upload-artifact@main
       if: steps.organize.outputs.status == 'success' && !cancelled()
@@ -152,8 +161,11 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-        echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M")"
+        echo "::set-output name=release_tag::$(date +%Y年%m月%d号-%H点%M分")-lede4.19-X86-64"
         touch release.txt
+        echo "源码 : https://github.com/project-openwrt/openwrt" >> release.txt
+        echo "由衷感谢所有为openwrt无私奉献的大佬们" >> release.txt
+        echo "📥 固件下载" >> release.txt
         [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [国内NN网盘](${{ steps.cowtransfer.outputs.url }})" >> release.txt
         [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [国外WT网盘](${{ steps.wetransfer.outputs.url }})" >> release.txt
         echo "::set-output name=status::success"
@@ -163,7 +175,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
-        tag_name: ${{ steps.tag.outputs.release_tag }}
+        tag_name: lede${{ env.FILE_DATE }}
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/*
     - name: 删除旧的Artifacts
