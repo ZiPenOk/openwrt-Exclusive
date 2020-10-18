@@ -20,7 +20,7 @@ config smartdns
 	option cache_size '10240'
 	option rr_ttl_max '3600'
 	option serve_expired '1'
-	option seconddns_no_speed_check '1'
+	option seconddns_no_speed_check '0'
 	option force_aaaa_soa '1'
 	option redirect 'none'
 	list old_redirect 'none'
@@ -34,13 +34,13 @@ config server
 	option ip '119.29.29.29'
 	option addition_arg '-check-edns'
 	option blacklist_ip '1'
-	
+
 config server
 	option enabled '1'
 	option name 'DNSPod'
 	option ip 'https://doh.pub/dns-query'
 	option type 'https'
-  option no_check_certificate '0'
+	option no_check_certificate '0'
 	option addition_arg '-check-edns'
 	option blacklist_ip '1'
 
@@ -51,13 +51,13 @@ config server
 	option ip '223.5.5.5'
 	option addition_arg '-check-edns'
 	option blacklist_ip '1'
-	
+
 config server
 	option enabled '1'
 	option name 'AliDNS'
 	option ip 'https://dns.alidns.com/dns-query'
 	option type 'https'
-  option no_check_certificate '0'
+	option no_check_certificate '0'
 	option addition_arg '-check-edns'
 	option blacklist_ip '1'
 
@@ -184,3 +184,4 @@ config server
 	option no_check_certificate '0'
 	option addition_arg '-check-edns'
 	option blacklist_ip '1'
+
