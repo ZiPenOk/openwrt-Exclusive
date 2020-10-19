@@ -9,11 +9,11 @@ config global
 	option up_trust_chinadns_ng_dns 'udp'
 	option dns_default 'china'
 	option udp_node1 'tcp_'
-	option dns_mode 'pdnsd'
-	option up_trust_pdnsd_dns 'tcp'
-	option dns_forward '8.8.4.4'
 	option enabled '0'
 	option tcp_node1 'nil'
+	option chinadns_ng '1'
+	option dns_mode 'custom'
+	option custom_dns '127.0.0.1#5335'
 
 config global_haproxy
 	option balancing_enable '0'
@@ -52,10 +52,6 @@ config global_rules
 	option gfwlist_url 'https://cdn.jsdelivr.net/gh/Loukky/gfwlist-by-loukky/gfwlist.txt'
 	option chnroute_url 'https://ispip.clang.cn/all_cn.txt'
 	option chnroute6_update '1'
-	option gfwlist_version '2020-09-01'
-	option chnroute_version '2020-09-01'
-	option chnroute6_version '2020-09-01'
-	option chnlist_version '2020-09-01'
 
 config global_app
 	option v2ray_file '/usr/bin/v2ray/'
