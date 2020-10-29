@@ -128,18 +128,23 @@ config host
 config host
 	option name 'YALI'
 	option dns '1'
-	option mac '5C:1D:D9:64:7C:FB'
+	option mac '5c:1d:d9:64:7c:fb'
 	option ip '10.10.10.128'
 
 config host
 	option name 'YALIPAD'
 	option dns '1'
-	option mac 'A0:56:F3:F0:AF:FE'
+	option mac 'A0:56:f3:f0:af:fe'
 	option ip '10.10.10.129'
 
 config host
 	option name 'PC-TP'
 	option dns '1'
-	option mac '08:1F:71:24:59:31'
+	option mac '08:1f:71:24:59:31'
 	option ip '10.10.10.130'
-
+	
+config host
+	option name 'PC-Mac'
+	option dns '1'
+	option mac '88:63:df:ac:3a:5b'
+	option ip '10.10.10.140'
