@@ -22,15 +22,15 @@ config acl_rule
 config acl_rule
 	option proxy_mode '1'
 	option remarks 'iphone11'
-	option mac '80:0C:67:20:8C:C1'
+	option mac '80:0c:67:20:8c:c1'
 
 config acl_rule
 	option proxy_mode '1'
 	option remarks 'YALI'
-	option mac '5C:1D:D9:64:7C:FB'
+	option mac '5c:1d:d9:64:7c:fb'
 
 config acl_rule
 	option proxy_mode '1'
 	option remarks 'YALIPAD'
-	option mac 'A0:56:F3:F0:AF:FE'
+	option mac 'a0:56:f3:f0:af:fe'
 
