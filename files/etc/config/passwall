@@ -109,7 +109,7 @@ config acl_rule
 	option tcp_redir_ports 'default'
 	option udp_redir_ports 'default'
 	option remarks 'iPhone11'
-	option mac '80:0C:67:20:8C:C1'
+	option mac '80:0c:67:20:8c:c1'
 	option tcp_proxy_mode 'disable'
 	option udp_proxy_mode 'disable'
 	option enabled '1'
