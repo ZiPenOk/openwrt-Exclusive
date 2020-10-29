@@ -57,7 +57,7 @@ config host
 	option dns '1'
 	option ip '10.10.10.121'
 	option name 'iPhone11'
-	option mac '80:0C:67:20:8C:C1'
+	option mac '80:0c:67:20:8c:c1'
 
 config host
 	option name 'Mum'
@@ -134,7 +134,7 @@ config host
 config host
 	option name 'YALIPAD'
 	option dns '1'
-	option mac 'A0:56:f3:f0:af:fe'
+	option mac 'a0:56:f3:f0:af:fe'
 	option ip '10.10.10.129'
 
 config host
