@@ -16,8 +16,8 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-  schedule:
-    - cron: 0 18 */3 * * 
+#  schedule:
+#    - cron: 0 18 */3 * * 
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -76,7 +76,7 @@ jobs:
         df -hT
 
     - name: TG推送
-      run: curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=🔥X86-openwrt2305自用版固件开刷编译，请耐心等待！"
+      run: curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=🔥X86-openwrt2410自用版固件开刷编译，请耐心等待！"
 
     - name: 下载固件源码
       working-directory: /mnt/workdir
@@ -179,7 +179,7 @@ jobs:
     
     - name: 发布至release
       id: release
-      uses: ncipollo/release-action@v1.14.0
+      uses: ncipollo/release-action@main
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         name: ${{ env.FILE_TIME }} 「 openwrt-2410-X86-64 」
@@ -199,16 +199,16 @@ jobs:
       with:
         token: ${{ secrets.RELEASE_TOKEN }}
         retain_days: 180
-        keep_minimum_runs: 10
+        keep_minimum_runs: 5
 
     - name: 删除旧的Releases
       uses: dev-drprasad/delete-older-releases@master
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        keep_latest: 9
+        keep_latest: 4
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         
     - name: TG推送
-      run: curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=🅰️恭喜主人X86-openwrt22410自用版固件编译完成！🎉%0A⏰编译时间：${{ env.DATE }}%0A📥下载地址：https://github.com/firkerword/openwrt-Exclusive/releases/tag/${{ env.TAG_TIME }}"
+      run: curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=🅰️恭喜主人X86-openwrt2410自用版固件编译完成！🎉%0A⏰编译时间：${{ env.DATE }}%0A📥下载地址：https://github.com/ZiPenOk/ZiPen-OpenWRT/releases/tag/${{ env.TAG_TIME }}"

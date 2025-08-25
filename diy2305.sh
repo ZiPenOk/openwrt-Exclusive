@@ -38,12 +38,10 @@ git clone https://github.com/jerrykuku/luci-theme-argon.git  package/luci-theme-
 git clone https://github.com/jerrykuku/luci-app-argon-config.git  package/luci-app-argon-config
 git clone -b js https://github.com/sirpdboy/luci-theme-kucat.git  package/luci-theme-kucat
 git clone https://github.com/nikkinikki-org/OpenWrt-nikki.git package/openwrt-nikki
-git clone https://github.com/Thaolga/luci-app-nekoclash  package/luci-app-nekoclash
 git clone https://github.com/xiaorouji/openwrt-passwall-packages.git package/openwrt-passwall
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 git clone https://github.com/sirpdboy/luci-app-advancedplus.git package/luci-app-advancedplus
 git clone https://github.com/sirpdboy/luci-app-taskplan package/luci-app-taskplan
-git clone https://github.com/sirpdboy/luci-app-eqosplus package/luci-app-eqosplus
 # git clone -b luci-smartdns-new-version https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 git clone https://github.com/tty228/luci-app-wechatpush.git package/luci-app-serverchan
 git clone https://github.com/sirpdboy/luci-app-lucky.git package/lucky
@@ -54,4 +52,7 @@ git clone https://github.com/linkease/nas-packages-luci.git package/nas-packages
 git clone https://github.com/linkease/nas-packages.git package/nas-packages
 git clone https://github.com/linkease/istore.git package/istore
 # sed -i 's/luci-lib-ipkg/luci-base/g' package/istore/luci/luci-app-store/Makefile
+# git clone -b master https://github.com/vernesong/OpenClash.git package/OpenClash
+merge_package https://github.com/vernesong/OpenClash OpenClash/luci-app-openclash
+
 
